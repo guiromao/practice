@@ -9,7 +9,7 @@ import java.util.Set;
 public class HasSumValues {
 
     public static void main(String[] args) {
-        int [] arrayOfInt = { 1, 4, 5, 8, 10, 12};
+        int [] arrayOfInt = { 1, 4, 5, 8, 10, 12 };
         boolean hasSum = hasValuesThatMakeSum(arrayOfInt, 13);
         System.out.println(hasSum);
     }
