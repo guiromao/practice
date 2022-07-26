@@ -3,4 +3,5 @@
 /.idea/workspace.xml
 /out
 *.iml
-/.idea
+.idea/
+out/
