@@ -1,27 +1,46 @@
 package co.gromao.practice.hashtable;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
+
 public class HashTable {
 
-    private final int [] data;
+    private final List<Data>[] data;
 
     public HashTable(int size) {
-        this.data = new int[size];
+        this.data = new List[size];
     }
 
     public void set(String key, int value) {
-        int hash = hash(key);
+        int address = hash(key);
 
-        validateHash(hash);
+        if (Objects.isNull(data[address])) {
+            data[address] = new ArrayList<>();
+        }
 
-        data[hash] = value;
+        data[address].add(new Data(key, value));
     }
 
     public int get(String key) {
-        int hash = hash(key);
+        int address = hash(key);
 
-        validateHash(hash);
+        if (Objects.nonNull(data[address])) {
+            return findValueOfKey(key, data[address]);
+        }
 
-        return data[hash];
+        throw new IllegalArgumentException("Non existing key in saved data");
+    }
+
+    private int findValueOfKey(String key, List<Data> dataList) {
+        for (Data item: dataList) {
+            if (key.equals(item.getKey())) {
+                return item.getValue();
+            }
+        }
+
+        throw new IllegalArgumentException("Non existing key address's saved data list");
     }
 
     private int hash(String key) {
@@ -32,12 +51,6 @@ public class HashTable {
         }
 
         return hash;
-    }
-
-    private void validateHash(int hash) {
-        if (hash < 0 || hash >= data.length) {
-            throw new IllegalArgumentException("Invalid hash for hashTable");
-        }
     }
 
 }
