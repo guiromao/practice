@@ -1,9 +1,11 @@
 package co.gromao.practice.hashtable;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Stream;
 
 public class HashTable {
 
@@ -33,6 +35,14 @@ public class HashTable {
         throw new IllegalArgumentException("Non existing key in saved data");
     }
 
+    public List<String> keys() {
+        return Stream.of(data)
+                .filter(Objects::nonNull)
+                .map(this::extractKeys)
+                .flatMap(Collection::stream)
+                .toList();
+    }
+
     private int findValueOfKey(String key, List<Data> dataList) {
         for (Data item: dataList) {
             if (key.equals(item.getKey())) {
@@ -51,6 +61,12 @@ public class HashTable {
         }
 
         return hash;
+    }
+
+    private List<String> extractKeys(List<Data> data) {
+        return data.stream()
+                .map(Data::getKey)
+                .toList();
     }
 
 }

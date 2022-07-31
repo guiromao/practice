@@ -12,7 +12,9 @@ public class Main {
         System.out.println(hashTable.get("Nix"));
         System.out.println(hashTable.get("Bowie"));
         System.out.println(hashTable.get("Gui"));
-        System.out.println(hashTable.get("BuzzLightyear"));
+        //System.out.println(hashTable.get("BuzzLightyear"));
+
+        System.out.println(hashTable.keys());
     }
 
 }
