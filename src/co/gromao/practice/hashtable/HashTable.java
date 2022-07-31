@@ -25,14 +25,14 @@ public class HashTable {
         data[address].add(new Data(key, value));
     }
 
-    public int get(String key) {
+    public Integer get(String key) {
         int address = hash(key);
 
         if (Objects.nonNull(data[address])) {
             return findValueOfKey(key, data[address]);
         }
 
-        throw new IllegalArgumentException("Non existing key in saved data");
+        return null;
     }
 
     public List<String> keys() {
@@ -43,14 +43,14 @@ public class HashTable {
                 .toList();
     }
 
-    private int findValueOfKey(String key, List<Data> dataList) {
+    private Integer findValueOfKey(String key, List<Data> dataList) {
         for (Data item: dataList) {
             if (key.equals(item.getKey())) {
                 return item.getValue();
             }
         }
 
-        throw new IllegalArgumentException("Non existing key address's saved data list");
+        return null;
     }
 
     private int hash(String key) {
