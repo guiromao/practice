@@ -10,14 +10,16 @@ public class Main {
         list.append(1906);
         list.append(7);
 
-        list.printList();
-        System.out.println();
-
         list.prepend(80);
         list.prepend(1988);
         list.prepend(1);
 
-        list.printList();
+        list.append(2000);
+        list.prepend(0);
+
+        list.insert(2, 999);
+
+        list.print();
     }
 
 }

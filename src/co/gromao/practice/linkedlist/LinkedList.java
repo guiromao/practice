@@ -1,5 +1,7 @@
 package co.gromao.practice.linkedlist;
 
+import java.util.Objects;
+
 public class LinkedList<T> {
 
     private Node<T> head;
@@ -22,15 +24,31 @@ public class LinkedList<T> {
         this.head = node;
     }
 
-    public void printList() {
-        Node<T> node = this.head;
+    public void insert(int index, T value) {
+        if (index == 0) {
+            prepend(value);
+        }
 
-        System.out.print(node.getValue() + " ");
+        Node<T> node = new Node<>(value);
+        boolean inserted = false;
+        int i = 0;
 
-        while (node.hasNext()) {
-            node = node.getNext();
+        for (Node<T> currNode = this.head; Objects.nonNull(currNode) && !inserted; currNode = currNode.getNext(), i++) {
+            if ((i + 1) == index) {
+                Node<T> nextNode = currNode.getNext();
+                node.setNext(nextNode);
+                currNode.setNext(node);
+                inserted = true;
+            }
+        }
+    }
+
+    public void print() {
+        for (Node<T> node = this.head; Objects.nonNull(node); node = node.getNext()) {
             System.out.print(node.getValue() + " ");
         }
+
+        System.out.println();
     }
 
 }
