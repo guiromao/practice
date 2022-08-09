@@ -19,6 +19,8 @@ public class Main {
 
         list.insert(2, 999);
 
+        list.remove(10);
+
         list.print();
     }
 

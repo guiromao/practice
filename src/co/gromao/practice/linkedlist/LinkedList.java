@@ -43,6 +43,26 @@ public class LinkedList<T> {
         }
     }
 
+    public void remove(int index) {
+        int i = 0;
+        Node<T> currNode = this.head;
+
+        while (i < index - 1) {
+            currNode = currNode.getNext();
+            i++;
+        }
+
+        Node<T> nextNode = currNode.getNext();
+
+        if (nextNode.equals(this.tail)) {
+            nextNode = null;
+        } else {
+            nextNode = nextNode.getNext();
+        }
+
+        currNode.setNext(nextNode);
+    }
+
     public void print() {
         for (Node<T> node = this.head; Objects.nonNull(node); node = node.getNext()) {
             System.out.print(node.getValue() + " ");
