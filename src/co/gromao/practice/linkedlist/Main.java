@@ -22,6 +22,16 @@ public class Main {
         list.remove(10);
 
         list.print();
+
+        DoublyLinkedList<Integer> doublyList = new DoublyLinkedList<>(22);
+        doublyList.append(11);
+        doublyList.prepend(3);
+        doublyList.print();
+        doublyList.insert(2, 87);
+
+        doublyList.print();
+        doublyList.remove(2);
+        doublyList.print();
     }
 
 }
