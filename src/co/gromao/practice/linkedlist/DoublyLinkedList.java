@@ -9,13 +9,13 @@ public class DoublyLinkedList<T> {
     private int length;
 
     public DoublyLinkedList(T value) {
-        this.head = new DoublyNode<>(value, null);
+        this.head = new DoublyNode<>(value);
         this.tail = head;
         this.length = 1;
     }
 
     public void prepend(T value) {
-        DoublyNode<T> newNode = new DoublyNode<>(value, null);
+        DoublyNode<T> newNode = new DoublyNode<>(value);
         newNode.setNext(this.head);
         this.head.setPrevious(newNode);
         this.head = newNode;
@@ -23,14 +23,15 @@ public class DoublyLinkedList<T> {
     }
 
     public void append(T value) {
-        DoublyNode<T> newNode = new DoublyNode<>(value, this.tail);
+        DoublyNode<T> newNode = new DoublyNode<>(value);
+        newNode.setPrevious(this.tail);
         this.tail.setNext(newNode);
         this.tail = newNode;
         this.length++;
     }
 
     public void insert(int index, T value) {
-        DoublyNode<T> newNode = new DoublyNode<>(value, null);
+        DoublyNode<T> newNode = new DoublyNode<>(value);
         DoublyNode<T> referenceNode = traverseToIndex(index - 1);
         DoublyNode<T> nextNode = Objects.isNull(referenceNode.getNext()) ? null : referenceNode.getNext();
         newNode.setNext(nextNode);

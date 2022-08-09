@@ -8,9 +8,9 @@ public class DoublyNode<T> {
     private DoublyNode<T> previous;
     private DoublyNode<T> next;
 
-    public DoublyNode(T value, DoublyNode<T> previous) {
+    public DoublyNode(T value) {
         this.value = value;
-        this.previous = previous;
+        this.previous = null;
         this.next = null;
     }
 
