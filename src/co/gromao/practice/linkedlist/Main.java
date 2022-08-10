@@ -22,6 +22,8 @@ public class Main {
         list.remove(10);
 
         list.print();
+        list.reverse();
+        list.print();
 
         DoublyLinkedList<Integer> doublyList = new DoublyLinkedList<>(22);
         doublyList.append(11);
@@ -32,6 +34,7 @@ public class Main {
         doublyList.print();
         doublyList.remove(2);
         doublyList.print();
+
     }
 
 }
