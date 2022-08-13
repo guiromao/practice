@@ -21,7 +21,7 @@ public class Queue<T> {
             this.first = currNode;
             this.last = this.first;
         } else {
-            currNode.setNext(this.last);
+            this.last.setNext(currNode);
             this.last = currNode;
         }
         this.length++;
@@ -30,26 +30,11 @@ public class Queue<T> {
     public Node<T> dequeue() {
         Node<T> result = this.first;
 
-        if (this.length == 1) {
-            this.first = null;
-        } else {
-            Node<T> newFirst = secondToLast();
-            newFirst.setNext(null);
-            this.first = newFirst;
-        }
+        this.first = (this.length == 1) ? null : this.first.getNext();
+        
         this.length--;
 
         return result;
-    }
-
-    private Node<T> secondToLast() {
-        Node<T> currNode = this.last;
-
-        while (!currNode.getNext().equals(this.first)) {
-            currNode = currNode.getNext();
-        }
-
-        return currNode;
     }
 
 }

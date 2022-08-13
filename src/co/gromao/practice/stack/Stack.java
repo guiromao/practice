@@ -23,7 +23,7 @@ public class Stack<T> {
             this.bottom = newNode;
             this.top = this.bottom;
         } else {
-            this.top.setNext(newNode);
+            newNode.setNext(this.top);
             this.top = newNode;
         }
         this.length++;
@@ -31,7 +31,7 @@ public class Stack<T> {
 
     public Node<T> pop() {
         if (length == 0) {
-            throw new IllegalStateException("Cannot pop empty Stack");
+            return null;
         }
 
         Node<T> result = this.top;
@@ -40,9 +40,7 @@ public class Stack<T> {
             this.bottom = null;
             this.top = this.bottom;
         } else {
-            Node<T> currNode = traverseToSecondLast();
-            currNode.setNext(null);
-            this.top = currNode;
+            this.top = this.top.getNext();
         }
 
         this.length--;
@@ -55,19 +53,10 @@ public class Stack<T> {
     }
 
     public void print() {
-        for (Node<T> currNode = this.bottom; Objects.nonNull(currNode); currNode = currNode.getNext()) {
+        for (Node<T> currNode = this.top; Objects.nonNull(currNode); currNode = currNode.getNext()) {
             System.out.print(currNode.getValue() + " ");
         }
         System.out.println();
     }
 
-    private Node<T> traverseToSecondLast() {
-        Node<T> currNode = this.bottom;
-
-        while (!currNode.getNext().equals(this.top)) {
-            currNode = currNode.getNext();
-        }
-
-        return currNode;
-    }
 }
