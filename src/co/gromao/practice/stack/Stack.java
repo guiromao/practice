@@ -38,6 +38,7 @@ public class Stack<T> {
 
         if (length == 1) {
             this.bottom = null;
+            this.top = this.bottom;
         } else {
             Node<T> currNode = traverseToSecondLast();
             currNode.setNext(null);
@@ -47,6 +48,10 @@ public class Stack<T> {
         this.length--;
 
         return result;
+    }
+
+    public boolean isEmpty() {
+        return Objects.isNull(this.bottom) && Objects.isNull(this.top) && length == 0;
     }
 
     public void print() {

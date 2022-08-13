@@ -25,6 +25,14 @@ public class Main {
         stack.pop();
 
         stack.print();
+
+        System.out.println("Is Stack empty: " + stack.isEmpty());
+
+        stack.pop();
+        stack.pop();
+
+        System.out.println("Is Stack empty: " + stack.isEmpty());
+        stack.print();
     }
 
 }
