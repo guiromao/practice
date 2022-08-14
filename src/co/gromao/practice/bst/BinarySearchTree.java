@@ -9,11 +9,7 @@ public class BinarySearchTree<T extends Number & Comparable<? super T>> {
     public void insert(T value) {
         Node<T> node = new Node<>(value);
 
-        if (Objects.isNull(this.root)) {
-            this.root = node;
-        } else {
-            insertFrom(this.root, node);
-        }
+        insertFrom(this.root, node);
     }
 
     public Node<T> lookup(T value) {
@@ -28,7 +24,7 @@ public class BinarySearchTree<T extends Number & Comparable<? super T>> {
 
     public void remove(T value) {
         Node<T> searchedNode = this.root;
-        boolean found = false;
+        boolean found = Objects.nonNull(searchedNode) && searchedNode.getValue().compareTo(value) == 0;
 
         while (Objects.nonNull(searchedNode) && !found) {
             Node<T> nextNode = value.compareTo(searchedNode.getValue()) < 0 ? searchedNode.getLeft() : searchedNode.getRight();
@@ -62,22 +58,26 @@ public class BinarySearchTree<T extends Number & Comparable<? super T>> {
     }
 
     private void insertFrom(Node<T> referenceNode, Node<T> newNode) {
-        boolean hasPlace = false;
-
-        while (!hasPlace) {
-            Node<T> currNode = newNode.getValue().compareTo(referenceNode.getValue()) < 0 ? referenceNode.getLeft() : referenceNode.getRight();
-
-            if (Objects.isNull(currNode)) {
-                hasPlace = true;
-            } else {
-                referenceNode = currNode;
-            }
-        }
-
-        if (newNode.getValue().compareTo(referenceNode.getValue()) < 0) {
-            referenceNode.setLeft(newNode);
+        if (Objects.isNull(this.root)) {
+            this.root = newNode;
         } else {
-            referenceNode.setRight(newNode);
+            boolean hasPlace = false;
+
+            while (!hasPlace) {
+                Node<T> currNode = newNode.getValue().compareTo(referenceNode.getValue()) < 0 ? referenceNode.getLeft() : referenceNode.getRight();
+
+                if (Objects.isNull(currNode)) {
+                    hasPlace = true;
+                } else {
+                    referenceNode = currNode;
+                }
+            }
+
+            if (newNode.getValue().compareTo(referenceNode.getValue()) < 0) {
+                referenceNode.setLeft(newNode);
+            } else {
+                referenceNode.setRight(newNode);
+            }
         }
     }
 
