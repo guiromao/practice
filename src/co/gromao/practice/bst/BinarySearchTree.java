@@ -37,6 +37,15 @@ public class BinarySearchTree<T extends Number & Comparable<? super T>> {
         }
 
         if (found) {
+
+            if (!searchedNode.equals(this.root) && Objects.isNull(searchedNode.getLeft()) && Objects.isNull(searchedNode.getRight())) {
+                if (value.compareTo(searchedNode.getValue()) < 0) {
+                    searchedNode.setLeft(null);
+                } else {
+                    searchedNode.setRight(null);
+                }
+            }
+
             Node<T> nodeToRemove = value.compareTo(searchedNode.getValue()) < 0 ? searchedNode.getLeft() : searchedNode.getRight();
             Node<T> leftOfRemoved = nodeToRemove.getLeft();
             Node<T> rightOfRemoved = nodeToRemove.getRight();
