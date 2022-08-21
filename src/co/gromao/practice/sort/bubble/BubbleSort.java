@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class BubbleSort {
 
-    public int[] sort(int[] array) {
+    public void sort(int[] array) {
         boolean isSorted = false;
         Integer max = null;
 
@@ -27,8 +27,6 @@ public class BubbleSort {
                 isSorted = true;
             }
         }
-
-        return array;
     }
 
 }
