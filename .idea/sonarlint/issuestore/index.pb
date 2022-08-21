@@ -32,3 +32,7 @@ V
 &src/co/gromao/practice/queue/Node.java,2\c\2cbf264a77337a1d0fa578121648d8d8dadab534
 W
 'src/co/gromao/practice/queue/Queue.java,8\e\8e1186a25bc83daac521fa7dc94dc1290a2d1dd4
+W
+'src/co/gromao/practice/stack/Stack.java,a\5\a53e5151325aa199e98d166604a335ea37a8141c
+T
+$src/co/gromao/practice/bst/Node.java,a\f\afbefab0b4769f34f4a8be885384db2a65b6c897
