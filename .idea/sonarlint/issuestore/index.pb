@@ -36,3 +36,11 @@ W
 'src/co/gromao/practice/stack/Stack.java,a\5\a53e5151325aa199e98d166604a335ea37a8141c
 T
 $src/co/gromao/practice/bst/Node.java,a\f\afbefab0b4769f34f4a8be885384db2a65b6c897
+`
+0src/co/gromao/practice/bst/BinarySearchTree.java,6\3\6395f45da679664207cf12c2d9df364b5181b320
+V
+&src/co/gromao/practice/graph/Node.java,c\6\c69be77f3bd45b9a1dae0a4daaea087296e73ac8
+W
+'src/co/gromao/practice/graph/Graph.java,a\9\a9868e038a77bab6ec69cd720e0453b8db225adc
+V
+&src/co/gromao/practice/graph/Main.java,8\4\84d89c135245b7f5331d21ab0aa8b6df669b1a50
