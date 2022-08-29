@@ -4,15 +4,15 @@ public class ReverseString {
 
     public static void main(String[] args) {
         String str = "astronautics";
-        System.out.println(reverseStringRecursively(str));
+        System.out.println(reverseStringRecursively(str, str.length()));
     }
 
-    private static String reverseStringRecursively(String str) {
-        if (str.length() == 1) {
+    private static String reverseStringRecursively(String str, int length) {
+        if (length - 1 == 0) {
             return "" + str.charAt(0);
         }
 
-        return str.charAt(str.length() - 1) + reverseStringRecursively("" + str);
+        return str.charAt(length - 1) + reverseStringRecursively(str, length - 1);
     }
 
     private static String reverseStringIteratively(String str) {

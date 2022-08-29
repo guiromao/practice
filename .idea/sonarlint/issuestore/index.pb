@@ -4,8 +4,6 @@ _
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-g
-7src/co/gromao/practice/reversestring/ReverseString.java,6\3\63da5577e78e297f7262a97d71749a86a19206fd
 o
 ?src/co/gromao/practice/mergesortedarrays/MergeSortedArrays.java,e\a\ea75f281a9b7f2f0e6e692384b4deedc403bf3bb
 _
@@ -44,3 +42,7 @@ W
 'src/co/gromao/practice/graph/Graph.java,a\9\a9868e038a77bab6ec69cd720e0453b8db225adc
 V
 &src/co/gromao/practice/graph/Main.java,8\4\84d89c135245b7f5331d21ab0aa8b6df669b1a50
+_
+/src/co/gromao/practice/factorial/Factorial.java,2\4\241355e34fdd2f29b9144691a5e86ddd2ca515df
+_
+/src/co/gromao/practice/fibonacci/Fibonacci.java,d\1\d1b32f82bb28d57ca269af0e9d8c239b8b0cda0c
